@@ -1,0 +1,1 @@
+CREATE TABLE todos(userId INTEGER,id INTEGER, title VARCHAR(255), isCompleted boolean) PRIMARY KEY id
