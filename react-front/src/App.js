@@ -2,6 +2,7 @@ import react, { useEffect, useState } from "react";
 import Todo from "./components/todo";
 import { getAllTodos } from "./funcs/todos-functions";
 import styled from 'styled-components'
+import WeatherBlock from "./components/weather-blok";
 import TodoForm from "./components/todo-form";
 function App() {
   const [todos, setTodos] = useState([])
@@ -28,6 +29,7 @@ function App() {
   return (
     <div className="App" >
       <TodoForm getTodos={getTodos} />
+      <WeatherBlock />
       <TodoContainer>
         {todos.map((todos, index) => <Todo todo={todos} key={index} />)}
       </TodoContainer>

@@ -10,4 +10,5 @@ public class IndexConfiguration {
     public RestTemplate restTemplate(){
         return new RestTemplate();
     }
+
 }

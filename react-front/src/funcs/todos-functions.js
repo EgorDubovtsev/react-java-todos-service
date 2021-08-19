@@ -5,8 +5,16 @@ export async function getAllTodos() {
     return await response.json();
 }
 export async function fetchTodoById(id) {
-    console.log("fetch todo by id: ", id)
+    console.log("fetch todo by id: ", id);
     const response = await fetch(`/api/fetchedTodo/${id}`);
 
     return await response.json();
+}
+
+export async function getAllWeather(){
+    console.log("Getting weather...");
+    const weatherResponse = await fetch("/api/fullTemperatureInfo");
+    console.log(weatherResponse);
+    
+    return await weatherResponse.text();
 }

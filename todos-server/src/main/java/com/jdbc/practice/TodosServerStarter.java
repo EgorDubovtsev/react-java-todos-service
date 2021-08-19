@@ -4,10 +4,10 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class JdbcPracApplication {
+public class TodosServerStarter {
 
 	public static void main(String[] args) {
-		SpringApplication.run(JdbcPracApplication.class, args);
+		SpringApplication.run(TodosServerStarter.class, args);
 	}
 
 }
