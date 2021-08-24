@@ -30,6 +30,7 @@ public class SimpleTodoDbDao implements TodoDbDao {
     }
 
     @Override
+    @Transactional
     public boolean saveTodo(Todo todo) {
         String sql = "INSERT INTO todos values(?, ?, ?, ?)";
         try {
