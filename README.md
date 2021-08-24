@@ -1,2 +1,3 @@
-1. start java app
-2. start react app
+### 1.  start java todos-remote-api
+### 2. start java todos-server
+### 3. start react app
