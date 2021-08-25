@@ -22,6 +22,7 @@ public class MainController {
 
     @GetMapping("/api/todos")
     public ResponseEntity<List<Todo>> getTodosListPage() {
+
         return ResponseEntity.ok(todosService.getTodos());
     }
 
@@ -29,6 +30,7 @@ public class MainController {
     public ResponseEntity<Todo> fetchTodo(@PathVariable int id) {
         Todo todo = todosService.fetchTodoFromRemote(id);
         todosService.saveTodo(todo);
+
         return ResponseEntity.ok(todo);
     }
 

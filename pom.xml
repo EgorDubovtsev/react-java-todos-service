@@ -6,7 +6,8 @@
 	<modules>
 		<module>todos-server</module>
 		<module>todos-remote-api</module>
-	</modules>
+        <module>logging-module</module>
+    </modules>
 	<parent>
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
