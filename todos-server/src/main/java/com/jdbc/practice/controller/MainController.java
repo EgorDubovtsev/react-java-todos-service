@@ -7,12 +7,14 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
+@RequestMapping("/api")
 @RestController
 public class MainController {
     @Autowired
@@ -20,13 +22,13 @@ public class MainController {
     @Autowired
     private TemperatureInfoService temperatureInfoService;
 
-    @GetMapping("/api/todos")
+    @GetMapping("/todos")
     public ResponseEntity<List<Todo>> getTodosListPage() {
 
         return ResponseEntity.ok(todosService.getTodos());
     }
 
-    @GetMapping("/api/fetchedTodo/{id}")
+    @GetMapping("/fetchedTodo/{id}")
     public ResponseEntity<Todo> fetchTodo(@PathVariable int id) {
         Todo todo = todosService.fetchTodoFromRemote(id);
         todosService.saveTodo(todo);
@@ -46,7 +48,7 @@ public class MainController {
         return "200";
     }
 
-    @GetMapping("/api/fullTemperatureInfo")
+    @GetMapping("/fullTemperatureInfo")
     public String getFullTemperatureInfo() {
         return temperatureInfoService.getFullTemperatureInfo();
     }
