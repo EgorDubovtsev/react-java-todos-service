@@ -1,15 +1,17 @@
 package com.jdbc.practice.service;
 
 import com.jdbc.practice.entity.Todo;
+import com.jdbc.practice.exception.TodoSaveException;
+import org.springframework.web.client.RestClientException;
 
 import java.util.List;
 
 public interface TodosService {
-    Todo fetchTodoFromRemote(int id);
+    Todo fetchTodoFromRemote(int id) throws RestClientException;
 
-    boolean saveTodo(Todo todo);
+    void saveTodo(Todo todo) throws TodoSaveException;
 
-    boolean saveTodos(List<Todo> list);
+    void saveTodos(List<Todo> list) throws TodoSaveException;
 
     List<Todo> getTodos();
 }

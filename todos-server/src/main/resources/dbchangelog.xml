@@ -1,27 +1,30 @@
 <?xml version="1.1" encoding="UTF-8" standalone="no"?>
-<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog" xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext" xmlns:pro="http://www.liquibase.org/xml/ns/pro" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd http://www.liquibase.org/xml/ns/pro http://www.liquibase.org/xml/ns/pro/liquibase-pro-4.1.xsd http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.1.xsd">
-        <changeSet author="Egor" id="1629792513907-1">
-                <createTable tableName="todos">
-                        <column name="userId" type="INTEGER" />
-                        <column name="id" type="INTEGER">
-                                <constraints primaryKey="true" nullable="false" primaryKeyName="id_pkey"/>
-                        </column>
-                        <column name="title" type="VARCHAR(255)"/>
-                        <column name="iscompleted" type="BOOLEAN"/>
-                </createTable>
-        </changeSet>
-        <changeSet id="23423423123" author="Egor">
-                <insert tableName="todos">
-                        <column name="userId" value="1"/>
-                        <column name="id" value="101"/>
-                        <column name="title" value="Make pasta"/>
-                        <column name="iscompleted" value="false"/>
-                </insert>
-                <insert tableName="todos">
-                        <column name="userId" value="1"/>
-                        <column name="id" value="102"/>
-                        <column name="title" value="Take a bath"/>
-                        <column name="iscompleted" value="true"/>
-                </insert>
-        </changeSet>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                   xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"
+                   xmlns:pro="http://www.liquibase.org/xml/ns/pro" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd http://www.liquibase.org/xml/ns/pro http://www.liquibase.org/xml/ns/pro/liquibase-pro-4.1.xsd http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.1.xsd">
+    <changeSet author="Egor" id="1629792513907-1">
+        <createTable tableName="todos">
+            <column name="userId" type="INTEGER"/>
+            <column name="id" type="INTEGER">
+                <constraints primaryKey="true" nullable="false" primaryKeyName="id_pkey"/>
+            </column>
+            <column name="title" type="VARCHAR(255)"/>
+            <column name="iscompleted" type="BOOLEAN"/>
+        </createTable>
+    </changeSet>
+    <changeSet id="23423423123" author="Egor">
+        <insert tableName="todos">
+            <column name="userId" value="1"/>
+            <column name="id" value="101"/>
+            <column name="title" value="Make pasta"/>
+            <column name="iscompleted" value="false"/>
+        </insert>
+        <insert tableName="todos">
+            <column name="userId" value="1"/>
+            <column name="id" value="102"/>
+            <column name="title" value="Take a bath"/>
+            <column name="iscompleted" value="true"/>
+        </insert>
+    </changeSet>
 </databaseChangeLog>

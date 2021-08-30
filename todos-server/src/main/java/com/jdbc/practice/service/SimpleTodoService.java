@@ -3,8 +3,10 @@ package com.jdbc.practice.service;
 import com.jdbc.practice.dao.TodoDbDao;
 import com.jdbc.practice.dao.TodoRestDao;
 import com.jdbc.practice.entity.Todo;
+import com.jdbc.practice.exception.TodoSaveException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.web.client.RestClientException;
 
 import java.util.List;
 
@@ -16,25 +18,19 @@ public class SimpleTodoService implements TodosService {
     private TodoDbDao todoDbDao;
 
     @Override
-    public Todo fetchTodoFromRemote(int id) {
-
+    public Todo fetchTodoFromRemote(int id) throws RestClientException {
         return todoRestDao.fetchTodo(id).getBody();
     }
 
     @Override
-    public boolean saveTodo(Todo todo) {
+    public void saveTodo(Todo todo) throws TodoSaveException {
 
-        return todoDbDao.saveTodo(todo);
+        todoDbDao.saveTodo(todo);
     }
 
     @Override
-    public boolean saveTodos(List<Todo> list) {
-        try {
-            return todoDbDao.saveTodos(list);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-        return false;
+    public void saveTodos(List<Todo> list) throws TodoSaveException {
+        todoDbDao.saveTodos(list);
     }
 
     @Override

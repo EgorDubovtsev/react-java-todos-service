@@ -18,3 +18,10 @@ export async function getAllWeather(){
     
     return await weatherResponse.text();
 }
+export async function fetchSeveralTodo(amount){
+    console.log(`fetch ${amount} todos`);
+    const response = await fetch(`/api/fetchSeveral/${amount}`);
+    console.log(response);
+
+    return response;
+}

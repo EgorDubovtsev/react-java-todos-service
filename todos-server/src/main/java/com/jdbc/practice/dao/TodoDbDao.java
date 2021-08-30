@@ -1,6 +1,7 @@
 package com.jdbc.practice.dao;
 
 import com.jdbc.practice.entity.Todo;
+import com.jdbc.practice.exception.TodoSaveException;
 
 import java.util.List;
 
@@ -9,7 +10,7 @@ public interface TodoDbDao {
 
     List<Todo> getTodos();
 
-    boolean saveTodo(Todo todo);
+    void saveTodo(Todo todo) throws TodoSaveException;
 
-    boolean saveTodos(List<Todo> todos) throws Exception;
+    void saveTodos(List<Todo> todos) throws TodoSaveException;
 }

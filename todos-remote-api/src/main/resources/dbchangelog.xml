@@ -1,0 +1,201 @@
+<?xml version="1.1" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                   xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"
+                   xmlns:pro="http://www.liquibase.org/xml/ns/pro" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd http://www.liquibase.org/xml/ns/pro http://www.liquibase.org/xml/ns/pro/liquibase-pro-4.1.xsd http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.1.xsd">
+    <changeSet author="accor (generated)" id="1630322575207-1">
+        <createTable tableName="temperature_for_every_day">
+            <column name="day" type="INTEGER">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="temperature_for_every_day_pkey"/>
+            </column>
+            <column name="temperature" type="VARCHAR(5)"/>
+        </createTable>
+    </changeSet>
+    <changeSet id="487539875893450" author="Egor">
+        <insert tableName="temperature_for_every_day">
+            <column name="day" value="1"/>
+            <column name="temperature" value="+24"/>
+        </insert>
+    </changeSet>
+    <changeSet id="11352223" author="Egor">
+        <insert tableName="temperature_for_every_day">
+            <column name="day" value="1"/>
+            <column name="temperature" value="-17"/>
+        </insert>
+    </changeSet>
+    <changeSet id="11119529" author="Egor">
+        <insert tableName="temperature_for_every_day">
+            <column name="day" value="2"/>
+            <column name="temperature" value="22"/>
+        </insert>
+    </changeSet>
+    <changeSet id="12092071" author="Egor">
+        <insert tableName="temperature_for_every_day">
+            <column name="day" value="3"/>
+            <column name="temperature" value="19"/>
+        </insert>
+    </changeSet>
+    <changeSet id="11906365" author="Egor">
+        <insert tableName="temperature_for_every_day">
+            <column name="day" value="4"/>
+            <column name="temperature" value="19"/>
+        </insert>
+    </changeSet>
+    <changeSet id="11309622" author="Egor">
+        <insert tableName="temperature_for_every_day">
+            <column name="day" value="5"/>
+            <column name="temperature" value="-7"/>
+        </insert>
+    </changeSet>
+    <changeSet id="11617259" author="Egor">
+        <insert tableName="temperature_for_every_day">
+            <column name="day" value="6"/>
+            <column name="temperature" value="-14"/>
+        </insert>
+    </changeSet>
+    <changeSet id="11321257" author="Egor">
+        <insert tableName="temperature_for_every_day">
+            <column name="day" value="7"/>
+            <column name="temperature" value="-26"/>
+        </insert>
+    </changeSet>
+    <changeSet id="11847534" author="Egor">
+        <insert tableName="temperature_for_every_day">
+            <column name="day" value="8"/>
+            <column name="temperature" value="29"/>
+        </insert>
+    </changeSet>
+    <changeSet id="11582138" author="Egor">
+        <insert tableName="temperature_for_every_day">
+            <column name="day" value="9"/>
+            <column name="temperature" value="-11"/>
+        </insert>
+    </changeSet>
+    <changeSet id="11332472" author="Egor">
+        <insert tableName="temperature_for_every_day">
+            <column name="day" value="10"/>
+            <column name="temperature" value="-6"/>
+        </insert>
+    </changeSet>
+    <changeSet id="12040123" author="Egor">
+        <insert tableName="temperature_for_every_day">
+            <column name="day" value="11"/>
+            <column name="temperature" value="2"/>
+        </insert>
+    </changeSet>
+    <changeSet id="11962449" author="Egor">
+        <insert tableName="temperature_for_every_day">
+            <column name="day" value="12"/>
+            <column name="temperature" value="-3"/>
+        </insert>
+    </changeSet>
+    <changeSet id="11470258" author="Egor">
+        <insert tableName="temperature_for_every_day">
+            <column name="day" value="13"/>
+            <column name="temperature" value="8"/>
+        </insert>
+    </changeSet>
+    <changeSet id="11904441" author="Egor">
+        <insert tableName="temperature_for_every_day">
+            <column name="day" value="14"/>
+            <column name="temperature" value="-20"/>
+        </insert>
+    </changeSet>
+    <changeSet id="11682118" author="Egor">
+        <insert tableName="temperature_for_every_day">
+            <column name="day" value="15"/>
+            <column name="temperature" value="-9"/>
+        </insert>
+    </changeSet>
+    <changeSet id="11504930" author="Egor">
+        <insert tableName="temperature_for_every_day">
+            <column name="day" value="16"/>
+            <column name="temperature" value="20"/>
+        </insert>
+    </changeSet>
+    <changeSet id="12075057" author="Egor">
+        <insert tableName="temperature_for_every_day">
+            <column name="day" value="17"/>
+            <column name="temperature" value="21"/>
+        </insert>
+    </changeSet>
+    <changeSet id="11963309" author="Egor">
+        <insert tableName="temperature_for_every_day">
+            <column name="day" value="18"/>
+            <column name="temperature" value="16"/>
+        </insert>
+    </changeSet>
+    <changeSet id="11230179" author="Egor">
+        <insert tableName="temperature_for_every_day">
+            <column name="day" value="19"/>
+            <column name="temperature" value="20"/>
+        </insert>
+    </changeSet>
+    <changeSet id="11497656" author="Egor">
+        <insert tableName="temperature_for_every_day">
+            <column name="day" value="20"/>
+            <column name="temperature" value="-29"/>
+        </insert>
+    </changeSet>
+    <changeSet id="11183275" author="Egor">
+        <insert tableName="temperature_for_every_day">
+            <column name="day" value="21"/>
+            <column name="temperature" value="-2"/>
+        </insert>
+    </changeSet>
+    <changeSet id="11653588" author="Egor">
+        <insert tableName="temperature_for_every_day">
+            <column name="day" value="22"/>
+            <column name="temperature" value="-30"/>
+        </insert>
+    </changeSet>
+    <changeSet id="11114817" author="Egor">
+        <insert tableName="temperature_for_every_day">
+            <column name="day" value="23"/>
+            <column name="temperature" value="15"/>
+        </insert>
+    </changeSet>
+    <changeSet id="11186760" author="Egor">
+        <insert tableName="temperature_for_every_day">
+            <column name="day" value="24"/>
+            <column name="temperature" value="20"/>
+        </insert>
+    </changeSet>
+    <changeSet id="11187670" author="Egor">
+        <insert tableName="temperature_for_every_day">
+            <column name="day" value="25"/>
+            <column name="temperature" value="23"/>
+        </insert>
+    </changeSet>
+    <changeSet id="11768376" author="Egor">
+        <insert tableName="temperature_for_every_day">
+            <column name="day" value="26"/>
+            <column name="temperature" value="7"/>
+        </insert>
+    </changeSet>
+    <changeSet id="11951376" author="Egor">
+        <insert tableName="temperature_for_every_day">
+            <column name="day" value="27"/>
+            <column name="temperature" value="-16"/>
+        </insert>
+    </changeSet>
+    <changeSet id="11850002" author="Egor">
+        <insert tableName="temperature_for_every_day">
+            <column name="day" value="28"/>
+            <column name="temperature" value="23"/>
+        </insert>
+    </changeSet>
+    <changeSet id="12098066" author="Egor">
+        <insert tableName="temperature_for_every_day">
+            <column name="day" value="29"/>
+            <column name="temperature" value="11"/>
+        </insert>
+    </changeSet>
+    <changeSet id="11148217" author="Egor">
+        <insert tableName="temperature_for_every_day">
+            <column name="day" value="30"/>
+            <column name="temperature" value="-19"/>
+        </insert>
+    </changeSet>
+
+</databaseChangeLog>

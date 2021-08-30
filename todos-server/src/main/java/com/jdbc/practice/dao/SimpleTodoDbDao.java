@@ -1,8 +1,10 @@
 package com.jdbc.practice.dao;
 
 import com.jdbc.practice.entity.Todo;
+import com.jdbc.practice.exception.TodoSaveException;
 import com.jdbc.practice.mapper.TodoMapper;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.DataAccessException;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
@@ -31,27 +33,20 @@ public class SimpleTodoDbDao implements TodoDbDao {
 
     @Override
     @Transactional
-    public boolean saveTodo(Todo todo) {
+    public void saveTodo(Todo todo) throws TodoSaveException {
         String sql = "INSERT INTO todos values(?, ?, ?, ?)";
         try {
             jdbcTemplate.update(sql, todo.getUserId(), todo.getId(), todo.getTitle(), todo.isCompleted());
-
-            return true;
-        } catch (Exception e) {
-            e.printStackTrace();
-
-            return false;
+        } catch (DataAccessException ignore) {
+            throw new TodoSaveException("Unable to save Todo. Todo with this id already exist");
         }
     }
 
     @Override
     @Transactional
-    public boolean saveTodos(List<Todo> todos) throws Exception {
+    public void saveTodos(List<Todo> todos) throws TodoSaveException {
         for (Todo todo : todos) {
-            if (!saveTodo(todo)) {
-                throw new Exception("Unable to save Todo");
-            }
+            saveTodo(todo);
         }
-        return true;
     }
 }

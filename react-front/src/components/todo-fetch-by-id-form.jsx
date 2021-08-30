@@ -3,7 +3,7 @@ import styled from 'styled-components'
 import { fetchTodoById } from '../funcs/todos-functions';
 
 const FetchTodoButton = styled.input`
-         height: 50px;
+        height: 50px;
         width: 180px;
         font-size:25px;
     `;

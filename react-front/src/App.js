@@ -3,7 +3,8 @@ import Todo from "./components/todo";
 import { getAllTodos } from "./funcs/todos-functions";
 import styled from 'styled-components'
 import WeatherBlock from "./components/weather-blok";
-import TodoForm from "./components/todo-form";
+import FetchSeveralForm from "./components/todo-fetch-several-form";
+import FetchToDoByIdForm from "./components/todo-fetch-by-id-form";
 function App() {
   const [todos, setTodos] = useState([])
 
@@ -28,7 +29,8 @@ function App() {
 
   return (
     <div className="App" >
-      <TodoForm getTodos={getTodos} />
+      <FetchToDoByIdForm getTodos={getTodos}/>
+      <FetchSeveralForm />
       <WeatherBlock />
       <TodoContainer>
         {todos.map((todos, index) => <Todo todo={todos} key={index} />)}
