@@ -1,6 +1,7 @@
 package com.jdbc.practice.dao;
 
 import com.jdbc.practice.entity.Todo;
+import com.jdbc.practice.exception.TodoDeleteException;
 import com.jdbc.practice.exception.TodoSaveException;
 
 import java.util.List;
@@ -13,4 +14,6 @@ public interface TodoDbDao {
     void saveTodo(Todo todo) throws TodoSaveException;
 
     void saveTodos(List<Todo> todos) throws TodoSaveException;
+
+    void deleteTodo(int todoId) throws TodoDeleteException;
 }

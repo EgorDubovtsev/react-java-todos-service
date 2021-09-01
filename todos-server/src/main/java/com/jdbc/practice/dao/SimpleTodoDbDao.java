@@ -1,6 +1,7 @@
 package com.jdbc.practice.dao;
 
 import com.jdbc.practice.entity.Todo;
+import com.jdbc.practice.exception.TodoDeleteException;
 import com.jdbc.practice.exception.TodoSaveException;
 import com.jdbc.practice.mapper.TodoMapper;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,6 +11,7 @@ import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
+
 @Repository
 public class SimpleTodoDbDao implements TodoDbDao {
     @Autowired
@@ -19,26 +21,29 @@ public class SimpleTodoDbDao implements TodoDbDao {
 
     @Override
     public Todo getTodoById(int id) {
-        String sql = "SELECT * FROM todos WHERE id=?";
+        String selectTodoByIdSql = "SELECT * FROM todos WHERE id=?";
 
-        return jdbcTemplate.queryForObject(sql, todoMapper, id);
+        return jdbcTemplate.queryForObject(selectTodoByIdSql, todoMapper, id);
     }
 
     @Override
     public List<Todo> getTodos() {
-        String sql = "SELECT * FROM todos";
+        String selectTodosSql = "SELECT * FROM todos";
 
-        return jdbcTemplate.query(sql, todoMapper);
+        return jdbcTemplate.query(selectTodosSql, todoMapper);
     }
 
     @Override
     @Transactional
     public void saveTodo(Todo todo) throws TodoSaveException {
-        String sql = "INSERT INTO todos values(?, ?, ?, ?)";
+        String saveTodoSql = "INSERT INTO todos values(?, ?, ?, ?)";
         try {
-            jdbcTemplate.update(sql, todo.getUserId(), todo.getId(), todo.getTitle(), todo.isCompleted());
-        } catch (DataAccessException ignore) {
-            throw new TodoSaveException("Unable to save Todo. Todo with this id already exist");
+            jdbcTemplate.update(saveTodoSql, todo.getUserId(), todo.getId(), todo.getTitle(), todo.isCompleted());
+
+        } catch (DataAccessException exception) {
+
+            exception.printStackTrace();
+            throw new TodoSaveException("Unable to save Todo.");
         }
     }
 
@@ -47,6 +52,19 @@ public class SimpleTodoDbDao implements TodoDbDao {
     public void saveTodos(List<Todo> todos) throws TodoSaveException {
         for (Todo todo : todos) {
             saveTodo(todo);
+        }
+    }
+
+    @Override
+    @Transactional
+    public void deleteTodo(int todoId) throws TodoDeleteException {
+        String todoDeleteSql = "DELETE FROM todos WHERE id = ?";
+        try {
+            jdbcTemplate.update(todoDeleteSql, todoId);
+
+        } catch (DataAccessException exception) {
+            exception.printStackTrace();
+            throw new TodoDeleteException("Unable to delete Todo.");
         }
     }
 }

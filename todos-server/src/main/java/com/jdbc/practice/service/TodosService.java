@@ -1,6 +1,7 @@
 package com.jdbc.practice.service;
 
 import com.jdbc.practice.entity.Todo;
+import com.jdbc.practice.exception.TodoDeleteException;
 import com.jdbc.practice.exception.TodoSaveException;
 import org.springframework.web.client.RestClientException;
 
@@ -14,4 +15,6 @@ public interface TodosService {
     void saveTodos(List<Todo> list) throws TodoSaveException;
 
     List<Todo> getTodos();
+
+    void deleteTodo(int todoId) throws TodoDeleteException;
 }

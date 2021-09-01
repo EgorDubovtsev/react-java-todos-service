@@ -3,6 +3,7 @@ package com.jdbc.practice.service;
 import com.jdbc.practice.dao.TodoDbDao;
 import com.jdbc.practice.dao.TodoRestDao;
 import com.jdbc.practice.entity.Todo;
+import com.jdbc.practice.exception.TodoDeleteException;
 import com.jdbc.practice.exception.TodoSaveException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -38,5 +39,11 @@ public class SimpleTodoService implements TodosService {
 
         return todoDbDao.getTodos();
     }
+
+    @Override
+    public void deleteTodo(int todoId) throws TodoDeleteException {
+        todoDbDao.deleteTodo(todoId);
+    }
+
 
 }
