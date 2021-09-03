@@ -10,7 +10,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.client.RestClientException;
 
 import java.util.List;
 
@@ -31,23 +30,11 @@ public class MainController {
     }
 
     @GetMapping("/fetchedTodo/{id}")
-    public ResponseEntity<Todo> fetchTodo(@PathVariable int id) {
-        try {
-            Todo todo = todosService.fetchTodoFromRemote(id);
-            todosService.saveTodo(todo);
+    public ResponseEntity<Todo> fetchTodo(@PathVariable int id) throws TodoSaveException {
+        Todo todo = todosService.fetchTodoFromRemote(id);
+        todosService.saveTodo(todo);
 
-            return ResponseEntity.ok(todo);
-
-        } catch (RestClientException e) {
-            e.printStackTrace();
-
-            return ResponseEntity.notFound().build();
-        } catch (TodoSaveException e) {
-            e.printStackTrace();
-
-            return ResponseEntity.badRequest().build();
-        }
-
+        return ResponseEntity.ok(todo);
     }
 
     @GetMapping("/fullTemperatureInfo")
@@ -63,13 +50,9 @@ public class MainController {
     }
 
     @DeleteMapping("delete/todo/{todoId}")
-    public ResponseEntity<HttpStatus> deleteTodo(@PathVariable int todoId) {
-        try {
-            todosService.deleteTodo(todoId);
-        } catch (TodoDeleteException e) {
-            e.printStackTrace();
-            return ResponseEntity.notFound().build();
-        }
+    public ResponseEntity<HttpStatus> deleteTodo(@PathVariable int todoId) throws TodoDeleteException {
+        todosService.deleteTodo(todoId);
+
         return ResponseEntity.ok().build();
     }
 
